@@ -1,0 +1,29 @@
+<div id="screen"></div>
+<div>
+    <% rows.forEach(function(row) { %>
+    <div class="rows">
+        <% row.items.forEach(function(item) {
+        let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        let operators = ["%", "*", "/", "-", "+"];
+        let equal = ["="];
+        let point = ["."];
+        let cancel = ["C"];
+        let id, dataSelector;
+        if (item === "=") {id = 'equal'}
+        if (item === "C") {id = 'delete'}
+        for (let i = 0; i < numbers.length; i++) {
+        if (item === numbers[i]) {dataSelector = 'number'}}
+        for (let i = 0; i < operators.length; i++) {
+        if (item === operators[i]) {dataSelector = 'operator'}}
+        for (let i = 0; i < equal.length; i++) {
+        if (item === equal[i]) {dataSelector = 'equal'}}
+        for (let i = 0; i < point.length; i++) {
+        if (item === point[i]) {dataSelector = 'point'}}
+        for (let i = 0; i < cancel.length; i++) {
+        if (item === cancel[i]) {dataSelector = 'cancel'}} %>
+
+        <input type="button" class="btn-style" value="<%-item%>" id="<%- id%>" data-selector="<%- dataSelector%>">
+        <% }); %>
+    </div>
+    <% }); %>
+</div>
