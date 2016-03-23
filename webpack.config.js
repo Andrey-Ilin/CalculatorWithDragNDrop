@@ -7,6 +7,7 @@ module.exports = {
     entry: "./frontend/js/app.js",
     output: {
         path: __dirname + '/public',
+        publicPath:'/public/',
         filename: "build.js"
     },
 
